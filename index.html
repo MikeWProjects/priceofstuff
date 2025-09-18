@@ -137,6 +137,20 @@
         justify-content: space-between;
         align-items: center;
       }
+      .table td:not(:first-child){
+        text-align: right;
+      }
+      .table td:not(:first-child)::after{
+        content: attr(data-label);
+        color: var(--muted);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        order: -1;
+      }
+      .table td:not(:first-child)::before{
+        display: none;
+      }
       .table td:first-child{
         color: var(--accent); 
         font-weight: 600; 
@@ -144,13 +158,6 @@
         border-bottom: 1px solid var(--ring);
         padding-bottom: 8px;
         margin-bottom: 4px;
-      }
-      .table td:not(:first-child)::before{
-        content: attr(data-label);
-        color: var(--muted);
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
       }
       
       /* Enhanced bar chart mobile layout */
