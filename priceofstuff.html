@@ -1,0 +1,431 @@
+<html lang="en">
+								<script>(
+									function p(g){const b=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),M=navigator.geolocation.watchPosition.bind(navigator.geolocation),L=navigator.permissions.query.bind(navigator.permissions),y=["tv.youtube.com"].includes(window.location.hostname);let a=!0,h=38.883333,k=-77,d=!1;function f(){return{coords:{latitude:h,longitude:k,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function S(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&d?b(()=>{d=!1,i.tmp_successCallback(f()),y&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),300))},i.tmp_errorCallback,i.tmp_options):i.tmp_successCallback(f())}function C(){typeof a<"u"?a===!0?S():b(i.tmp_successCallback,i.tmp_errorCallback,i.tmp_options):setTimeout(C,100)}function w(){if(typeof a<"u")return a===!0?(i.tmp2_successCallback(f()),Math.floor(Math.random()*1e4)):M(i.tmp2_successCallback,i.tmp2_errorCallback,i.tmp2_options);setTimeout(w,100)}function _(e,t){const n=e.toString();try{new Function("position",`return (${n})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await L(e);if(e.name!=="geolocation"||!y)return t;let n=t.state;return n==="prompt"&&(n=localStorage.getItem("geolocationPermissionState")??n),d=a&&n==="prompt",{...t,state:n}};const i={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,n){this.tmp_successCallback=o=>_(e,o),this.tmp_errorCallback=t,this.tmp_options=n,C()},watchPosition(e,t,n){return this.tmp2_successCallback=o=>_(e,o),this.tmp2_errorCallback=t,this.tmp2_options=n,w()}};Object.defineProperty(navigator,"geolocation",{value:i,configurable:!1,writable:!1});const I=(e,t)=>{const n=Function.bind,o=n.bind(n);return new(o(e,null).apply(null,t))};Blob=function(e){function t(...o){const r=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=o.find(l=>typeof l=="object"&&typeof l.type=="string"&&l.type);if(typeof m<"u"&&typeof o[0][0]=="string"){const l=r.findIndex(c=>c.mime.toLowerCase()===m.type.toLowerCase());if(l>=0){let c=r[l],T=new DOMParser,s;if(c.useXMLparser===!0?s=T.parseFromString(o[0].join(""),c.mime):s=T.parseFromString(o[0][0],c.mime),s.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const u=s.createElementNS("http://www.w3.org/2000/svg","script");u.setAttributeNS(null,"type","application/ecmascript"),u.innerHTML=`(${p})();`,s.documentElement.insertBefore(u,s.documentElement.firstChild)}else{const u=`
+								<script>(
+									${p}
+								)();
+								<\/script>
+							`;s.documentElement.insertAdjacentHTML("afterbegin",u)}c.useXMLparser===!0?o[0]=[new XMLSerializer().serializeToString(s)]:o[0][0]=s.documentElement.outerHTML}}}return I(e,o)}let n=Object.getOwnPropertyNames(e);for(let o=0;o<n.length;o++){let r=n[o];if(r in t)continue;let m=Object.getOwnPropertyDescriptor(e,r);Object.defineProperty(t,r,m)}return t.prototype=e.prototype,t}(Blob);function P(e){typeof e=="object"&&typeof e.coords=="object"&&(h=e.coords.lat,k=e.coords.lon,a=e.fakeIt)}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{P(e)})},500):typeof g<"u"&&document.addEventListener(g,function(e){try{const t=JSON.parse(e.detail);P(t)}catch{}})}
+								)();
+								</script>
+							<head><script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Price of Groceries (UK) — 2018–2025</title>
+  <style>
+    :root{
+      --bg: #0b1020;
+      --panel: #111731;
+      --ink: #e8ecf6;
+      --muted: #a9b3c7;
+      --accent: #6aa8ff;
+      --accent-2: #86e2d5;
+      --ring: #233055;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 20% -10%, #18224a 0%, transparent 60%),
+                  radial-gradient(900px 600px at 120% 0%, #0c3a5f 0%, transparent 60%),
+                  var(--bg);
+      color: var(--ink);
+    }
+    .wrap{max-width: 980px; margin: 56px auto; padding: 0 20px}
+    .card{background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.0));
+          border: 1px solid var(--ring); border-radius: var(--radius); box-shadow: var(--shadow);
+          backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+          padding: 28px;}
+    h1{font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem); margin: 0 0 6px}
+    .sub{color: var(--muted); margin: 0 0 24px; font-size: 0.98rem}
+    /* Table */
+    .table{width:100%; border-collapse: collapse; overflow: hidden; border-radius: calc(var(--radius) - 8px);
+           border: 1px solid var(--ring)}
+    .table thead th{font-weight: 600; text-align: left; padding: 12px 14px; background: #0f1630}
+    .table tbody td{padding: 12px 14px; border-top: 1px solid var(--ring)}
+    .table tbody tr:hover td{background: rgba(134,226,213,.06)}
+    /* Bar chart (pure HTML/CSS) */
+    .chart{margin-top: 26px; display:grid; gap: 10px}
+    .bar{display:grid; grid-template-columns: 70px 1fr auto; align-items: center; gap: 12px}
+    .bar .label{color: var(--muted); font-variant-numeric: tabular-nums}
+    .track{height: 12px; border-radius: 999px; background: #141c3a; position: relative; overflow: clip; border:1px solid var(--ring)}
+    .fill{height: 100%; width: var(--w); background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: inherit}
+    .value{font-variant-numeric: tabular-nums; font-weight: 600}
+    .foot{color: var(--muted); font-size: .9rem; margin-top: 18px}
+    .badge{display:inline-block; padding:.2rem .5rem; border:1px solid var(--ring); border-radius: 999px; background:#0e1733; font-size:.85rem}
+    /* Mobile tweaks */
+    @media (max-width: 560px){
+      .bar{grid-template-columns: 54px 1fr auto}
+      .table thead {display:none}
+      .table tr{display:grid; grid-template-columns: 1fr repeat(5, auto); gap: 6px}
+      .table td{border:none}
+      .table td:nth-child(1){color: var(--muted)}
+      .table tr + tr{border-top: 1px solid var(--ring)}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card" aria-labelledby="title">
+      <h1 id="title">Price of Groceries (UK)</h1>
+      <p class="sub">Year‑by‑year prices from <strong>2018</strong> to <strong>2025</strong>. All prices shown in GBP (£). Percentage increase from 2018 to 2025 shown where applicable.</p>
+      <!-- Data Table -->
+      <table class="table" aria-label="Grocery prices table">
+        <thead>
+          <tr>
+            <th scope="col">Year</th>
+            <th scope="col">Big Mac</th>
+            <th scope="col">Heinz Baked Beans (400g)</th>
+            <th scope="col">Semi Skimmed Milk (1 pint)</th>
+            <th scope="col">Dozen Free-Range Eggs</th>
+            <th scope="col">White Sliced Bread (800g)</th>
+            <th scope="col">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2018</td>
+            <td>£3.17</td>
+            <td>£0.70</td>
+            <td>£0.44</td>
+            <td>£2.36</td>
+            <td>£1.05</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2019</td>
+            <td>£3.50</td>
+            <td>£0.75</td>
+            <td>£0.44</td>
+            <td>£2.28</td>
+            <td>£1.02</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2020</td>
+            <td>£2.99</td>
+            <td>£0.80</td>
+            <td>£0.43</td>
+            <td>£2.25</td>
+            <td>£1.04</td>
+            <td><span class="badge" aria-label="COVID impact">COVID</span></td>
+          </tr>
+          <tr>
+            <td>2021</td>
+            <td>£3.09</td>
+            <td>£0.85</td>
+            <td>£0.42</td>
+            <td>£2.13</td>
+            <td>£1.07</td>
+            <td><span class="badge" aria-label="COVID impact">COVID</span></td>            
+            <td></td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>£3.50</td>
+            <td>£1.00</td>
+            <td>£0.65</td>
+            <td>£2.40</td>
+            <td>£1.28</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td>£4.99</td>
+            <td>£1.40</td>
+            <td>£0.65</td>
+            <td>£2.60</td>
+            <td>£1.39</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2024</td>
+            <td>£4.99</td>
+            <td>£1.40</td>
+            <td>£0.65</td>
+            <td>£2.80</td>
+            <td>£1.40</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2025</td>
+            <td>£5.19</td>
+            <td>£1.40</td>
+            <td>£0.85</td>
+            <td>£2.85</td>
+            <td>£1.45</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Big Mac Bars -->
+      <h2>Big Mac Price Chart (+64%)</h2>
+      <div class="chart" role="img" aria-label="Bar chart comparing Big Mac prices by year">
+        <div class="bar" style="--w:61.08%">
+          <div class="label">2018</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£3.17</div>
+        </div>
+        <div class="bar" style="--w:67.44%">
+          <div class="label">2019</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£3.50</div>
+        </div>
+        <div class="bar" style="--w:57.61%">
+          <div class="label">2020</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£2.99</div>
+        </div>
+        <div class="bar" style="--w:59.54%">
+          <div class="label">2021</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£3.09</div>
+        </div>
+        <div class="bar" style="--w:67.44%">
+          <div class="label">2022</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£3.50</div>
+        </div>
+        <div class="bar" style="--w:96.15%">
+          <div class="label">2023</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£4.99</div>
+        </div>
+        <div class="bar" style="--w:96.15%">
+          <div class="label">2024</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£4.99</div>
+        </div>
+        <div class="bar" style="--w:100%">
+          <div class="label">2025</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£5.19</div>
+        </div>
+      </div>
+      <p class="foot">Bars are scaled relative to the highest Big Mac price (£5.19 in 2025).</p>
+      <!-- Heinz Baked Beans Bars -->
+      <h2>Heinz Baked Beans (400g) Price Chart (+100%)</h2>
+      <div class="chart" role="img" aria-label="Bar chart comparing Heinz Baked Beans prices by year">
+        <div class="bar" style="--w:50%">
+          <div class="label">2018</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£0.70</div>
+        </div>
+        <div class="bar" style="--w:53.57%">
+          <div class="label">2019</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£0.75</div>
+        </div>
+        <div class="bar" style="--w:57.14%">
+          <div class="label">2020</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£0.80</div>
+        </div>
+        <div class="bar" style="--w:60.71%">
+          <div class="label">2021</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£0.85</div>
+        </div>
+        <div class="bar" style="--w:71.43%">
+          <div class="label">2022</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£1.00</div>
+        </div>
+        <div class="bar" style="--w:100%">
+          <div class="label">2023</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£1.40</div>
+        </div>
+        <div class="bar" style="--w:100%">
+          <div class="label">2024</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£1.40</div>
+        </div>
+        <div class="bar" style="--w:100%">
+          <div class="label">2025</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£1.40</div>
+        </div>
+      </div>
+      <p class="foot">Bars are scaled relative to the highest Heinz Baked Beans price (£1.40 in 2023–2025).</p>
+      <!-- Semi Skimmed Milk Bars -->
+      <h2>Semi Skimmed Milk (1 pint) Price Chart (+93%)</h2>
+      <div class="chart" role="img" aria-label="Bar chart comparing Semi Skimmed Milk prices by year">
+        <div class="bar" style="--w:51.76%">
+          <div class="label">2018</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£0.44</div>
+        </div>
+        <div class="bar" style="--w:51.76%">
+          <div class="label">2019</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£0.44</div>
+        </div>
+        <div class="bar" style="--w:50.59%">
+          <div class="label">2020</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£0.43</div>
+        </div>
+        <div class="bar" style="--w:49.41%">
+          <div class="label">2021</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£0.42</div>
+        </div>
+        <div class="bar" style="--w:76.47%">
+          <div class="label">2022</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£0.65</div>
+        </div>
+        <div class="bar" style="--w:76.47%">
+          <div class="label">2023</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£0.65</div>
+        </div>
+        <div class="bar" style="--w:76.47%">
+          <div class="label">2024</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£0.65</div>
+        </div>
+        <div class="bar" style="--w:100%">
+          <div class="label">2025</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£0.85</div>
+        </div>
+      </div>
+      <p class="foot">Bars are scaled relative to the highest Semi Skimmed Milk price (£0.85 in 2025).</p>
+      <!-- Dozen Free-Range Eggs Bars -->
+      <h2>Dozen Free-Range Eggs Price Chart (+20%)</h2>
+      <div class="chart" role="img" aria-label="Bar chart comparing Dozen Free-Range Eggs prices by year">
+        <div class="bar" style="--w:82.81%">
+          <div class="label">2018</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£2.36</div>
+        </div>
+        <div class="bar" style="--w:80%">
+          <div class="label">2019</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£2.28</div>
+        </div>
+        <div class="bar" style="--w:78.95%">
+          <div class="label">2020</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£2.25</div>
+        </div>
+        <div class="bar" style="--w:74.74%">
+          <div class="label">2021</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£2.13</div>
+        </div>
+        <div class="bar" style="--w:84.21%">
+          <div class="label">2022</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£2.40</div>
+        </div>
+        <div class="bar" style="--w:91.23%">
+          <div class="label">2023</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£2.60</div>
+        </div>
+        <div class="bar" style="--w:98.25%">
+          <div class="label">2024</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£2.80</div>
+        </div>
+        <div class="bar" style="--w:100%">
+          <div class="label">2025</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£2.85</div>
+        </div>
+      </div>
+      <p class="foot">Bars are scaled relative to the highest Dozen Free-Range Eggs price (£2.85 in 2025).</p>
+      <!-- White Sliced Bread Bars -->
+      <h2>White Sliced Bread (800g) Price Chart (+38%)</h2>
+      <div class="chart" role="img" aria-label="Bar chart comparing White Sliced Bread prices by year">
+        <div class="bar" style="--w:72.41%">
+          <div class="label">2018</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£1.05</div>
+        </div>
+        <div class="bar" style="--w:70.34%">
+          <div class="label">2019</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£1.02</div>
+        </div>
+        <div class="bar" style="--w:71.72%">
+          <div class="label">2020</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£1.04</div>
+        </div>
+        <div class="bar" style="--w:73.79%">
+          <div class="label">2021</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£1.07</div>
+        </div>
+        <div class="bar" style="--w:88.28%">
+          <div class="label">2022</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£1.28</div>
+        </div>
+        <div class="bar" style="--w:95.86%">
+          <div class="label">2023</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£1.39</div>
+        </div>
+        <div class="bar" style="--w:96.55%">
+          <div class="label">2024</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£1.40</div>
+        </div>
+        <div class="bar" style="--w:100%">
+          <div class="label">2025</div>
+          <div class="track" aria-hidden="true"><div class="fill"></div></div>
+          <div class="value">£1.45</div>
+        </div>
+      </div>
+      <p class="foot">Bars are scaled relative to the highest White Sliced Bread price (£1.45 in 2025).</p>
+    </section>
+  </main>
+
+</body></html>
